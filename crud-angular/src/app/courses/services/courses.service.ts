@@ -15,7 +15,7 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API).pipe(
       // first(),
       take(1), // pegar apenas a primeira resposta e finalizar inscrição na origem de dados assim como o first()
-      delay(5000),
+      delay(2000),
       tap((courses) => console.log(courses))
     );
   }
