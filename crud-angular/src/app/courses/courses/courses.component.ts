@@ -13,7 +13,7 @@ import { ErrorDialogComponent } from "src/app/shared/components/error-dialog/err
 })
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
-  displayedColumns = ["name", "category"];
+  displayedColumns = ["name", "category", "actions"];
 
   constructor(
     private coursesService: CoursesService,
@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
   ) {
     this.courses$ = this.coursesService.list().pipe(
       catchError((error) => {
-        this.onError("Não foi possível lisar os cursos.");
+        this.onError("Não foi possível listar os cursos.");
         return of([]);
       })
     );
