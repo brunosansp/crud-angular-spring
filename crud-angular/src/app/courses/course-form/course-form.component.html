@@ -12,24 +12,34 @@
       <mat-label>Input</mat-label>
       <input matInput>
     </mat-form-field> -->
-    
+
     <form [formGroup]="form">
       <mat-form-field class="full-width">
         <mat-label placeholder="Nome">Nome</mat-label>
-        <input matInput formControlName="name">
+        <input matInput formControlName="name" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label placeholder="Nome">Categoria</mat-label>
-        <input matInput formControlName="category">
+        <mat-label placeholder="Categoria">Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="null"> </mat-option>
+          <mat-option value="front-end">Front-End</mat-option>
+          <mat-option value="back-end">Back-End</mat-option>
+          <mat-option value="fullstack">Fullstack</mat-option>
+          <mat-option value="devops" disabled>DevOps</mat-option>
+        </mat-select>
       </mat-form-field>
     </form>
   </mat-card-content>
 
   <section>
     <mat-card-actions class="actions-center">
-      <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
-      <button mat-raised-button class="btn-space" (click)="onCancel()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">
+        Salvar
+      </button>
+      <button mat-raised-button class="btn-space" (click)="onCancel()">
+        Cancelar
+      </button>
     </mat-card-actions>
   </section>
 </mat-card>
