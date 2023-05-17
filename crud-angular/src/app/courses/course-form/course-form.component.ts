@@ -1,7 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-course-form',
@@ -14,7 +15,8 @@ export class CourseFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: CoursesService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private location: Location
   ) {
     this.form = formBuilder.group({
       _id: [''],
@@ -40,11 +42,18 @@ export class CourseFormComponent implements OnInit {
   }
 
   onCancel() {
-    throw new Error('Method not implemented.');
+    this.location.back();
   }
 
-  onError() {
-    this._snackBar.open('Error ao salvar curso.', undefined, {
+  onSuccess() {
+    this._snackBar.open('Curso salvo com sucesso.', '', {
+      duration: 5000,
+    });
+    this.onCancel();
+  }
+
+  private onError() {
+    this._snackBar.open('Error ao salvar curso.', '', {
       duration: 5000,
     });
   }

@@ -1,19 +1,15 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Cadastro de novo curso</mat-card-title>
-    <mat-card-subtitle>Campos com * são obrigatórios</mat-card-subtitle>
+    <mat-card-title class="text-subtitle-color-primary"
+      >Cadastro de novo curso</mat-card-title
+    >
+    <mat-card-subtitle class="text-subtitle-comment-size"
+      >Campos com * são obrigatórios</mat-card-subtitle
+    >
   </mat-card-header>
 
-  <!-- <p></p> -->
   <mat-card-content>
-    <!-- <mat-toolbar color="primary">Cadastrar novo curso</mat-toolbar> -->
-
-    <!-- <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field> -->
-
-    <form [formGroup]="form">
+    <form [formGroup]="form" class="min-width">
       <mat-form-field class="full-width">
         <mat-label placeholder="Nome">Nome</mat-label>
         <input matInput formControlName="name" />
