@@ -39,6 +39,7 @@ export class CourseFormComponent implements OnInit {
       (result) => console.log(result),
       (error) => this.onError()
     );
+    this.onCancel();
   }
 
   onCancel() {
@@ -49,7 +50,6 @@ export class CourseFormComponent implements OnInit {
     this._snackBar.open('Curso salvo com sucesso.', '', {
       duration: 5000,
     });
-    this.onCancel();
   }
 
   private onError() {
